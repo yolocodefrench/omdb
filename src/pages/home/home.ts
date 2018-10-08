@@ -11,4 +11,6 @@ export class HomePage {
 
   }
 
+  list = "69335388"
+
 }
