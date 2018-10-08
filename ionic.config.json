@@ -1,0 +1,7 @@
+{
+  "name": "omdb",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
