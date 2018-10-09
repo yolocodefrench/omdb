@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Movie } from '../../pages/movies/Movie';
 /* 
   Generated class for the MovieGetterProvider provider.
 
@@ -15,7 +14,7 @@ export class MovieGetterProvider {
 
   constructor(public httpClient : HttpClient) {
     var i;
-    for(i=0;i<50;i++)
+    for(i=0;i<3;i++)
       this.getMovies();
   }
 
