@@ -9,25 +9,50 @@
   <ion-navbar>
     <ion-title>Movies</ion-title>
   </ion-navbar>
+  <ion-input type="text" placeholder="Movie name"></ion-input>
+  <button ion-button>Search</button>
 
 </ion-header>
 
-<!-- 172d5c07 -->
 <ion-content padding>
-<ion-searchbar
-  (keyup)="onKey($event)">
-</ion-searchbar>
-  <ion-item *ngFor="let movie of movieGetter.moviesList">
-    <ion-card>
-        <ion-card-header>
-          {{movie.Title}}
-        </ion-card-header>
-        <ion-card-content>
-          <ion-list>
-            <ion-item>{{movie.Genre}}</ion-item>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
-  </ion-item>
+
+  <ion-searchbar
+    (keyup)="onKey($event)">
+  </ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let movie of movieGetter.moviesList">
+        <ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-2>
+                  <img src={{movie.Poster}}/>
+                </ion-col>
+                <ion-card-title>
+                  {{movie.Title}}
+                </ion-card-title>
+                <ion-col col-5>
+                  <ion-list>
+                    <ion-item>Year : {{movie.Year}}</ion-item>
+                    <ion-item>Rated : {{movie.Rated}}</ion-item>
+                    <ion-item>Released : {{movie.Released}}</ion-item>
+                    <ion-item>Runtime : {{movie.Runtime}}</ion-item>
+                    <ion-item>Genre : {{movie.Genre}}</ion-item>
+                    <ion-item>Director : {{movie.Director}}</ion-item>
+                    <ion-item>Language : {{movie.Language}}</ion-item>
+                    <ion-item>Country : {{movie.Country}}</ion-item>
+                    <ion-item>Awards : {{movie.Awards}}</ion-item>
+                    <ion-item>Production : {{movie.Production}}</ion-item>
+                  </ion-list>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+
+ 
 
