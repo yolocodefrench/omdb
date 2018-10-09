@@ -14,9 +14,9 @@ import {MovieGetterProvider} from '../../providers/movie-getter/movie-getter';
   templateUrl: 'movies.html',
 })
 export class MoviesPage {
-  public movies_list;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public movieGetter : MovieGetterProvider) {
-    this.movies_list=movieGetter.getMovies();
   }
 
   ionViewDidLoad() {

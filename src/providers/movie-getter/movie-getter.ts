@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-/*
+import { Movie } from '../../pages/movies/Movie';
+/* 
   Generated class for the MovieGetterProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
@@ -9,14 +10,20 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MovieGetterProvider {
 
+  public config;
+  public moviesList=[];
+
   constructor(public httpClient : HttpClient) {
+    var i;
+    for(i=0;i<50;i++)
+      this.getMovies();
   }
 
-  getMovies(): Observable<Movie[]>{
-    var moviesList=[];
-
-    var movie= this.httpClient.get<Movie[]>('http://www.omdbapi.com/?t=coco&apikey=69335388');
-    console.log(movie);
-    return moviesList;
+  getMovies() {
+    this.httpClient.get('http://www.omdbapi.com/?t=coco&apikey=69335388').subscribe(
+      data => { this.moviesList.push( data ); console.log(data) },
+      err => console.error(err),
+      () => console.log('Movie Done')
+    );
   }
 }

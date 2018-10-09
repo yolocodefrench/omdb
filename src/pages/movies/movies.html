@@ -14,14 +14,15 @@
 
 <!-- 172d5c07 -->
 <ion-content padding>
-  <ion-item *ngFor="let movie of movies_list">
+  <ion-item *ngFor="let movie of movieGetter.moviesList">
     <ion-card>
         <ion-card-header>
           {{movie.Title}}
         </ion-card-header>
         <ion-card-content>
-          <ion-img width="80" height="80" src="{{movie.Poster}}"></ion-img>
-          A {{movie.Genre}} movie from {{movie.Year}} released in {{movie.Released}} rated by {{movie.Rated}} long of {{movie.Runtime}}!
+          <ion-list>
+            <ion-item>{{movie.Genre}}</ion-item>
+          </ion-list>
         </ion-card-content>
       </ion-card>
   </ion-item>
