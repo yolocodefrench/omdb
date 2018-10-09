@@ -9,9 +9,6 @@
   <ion-navbar>
     <ion-title>Movies</ion-title>
   </ion-navbar>
-  <ion-input type="text" placeholder="Movie name"></ion-input>
-  <button ion-button>Search</button>
-
 </ion-header>
 
 <ion-content padding>
@@ -19,6 +16,17 @@
   <ion-searchbar
     (keyup)="onKey($event)">
   </ion-searchbar>
+  <span *ngIf="movieGetter.moviesList.length == 0">
+    <ion-card>
+      <ion-card-title>Error</ion-card-title>
+      <ion-card-content>
+        <p>
+          To many movies found!
+          <img id="image_red_cross_error" src="https://cdn3.iconfinder.com/data/icons/simple-web-navigation/165/cross-128.png"  width="64px"/>
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </span>
   <ion-list>
     <ion-item *ngFor="let movie of movieGetter.moviesList">
         <ion-card>
