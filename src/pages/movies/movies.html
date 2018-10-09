@@ -14,6 +14,9 @@
 
 <!-- 172d5c07 -->
 <ion-content padding>
+<ion-searchbar
+  (keyup)="onKey($event)">
+</ion-searchbar>
   <ion-item *ngFor="let movie of movieGetter.moviesList">
     <ion-card>
         <ion-card-header>

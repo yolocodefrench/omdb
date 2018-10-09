@@ -14,12 +14,19 @@ import {MovieGetterProvider} from '../../providers/movie-getter/movie-getter';
   templateUrl: 'movies.html',
 })
 export class MoviesPage {
+  private value = "";
+  movieTitle = "";
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public movieGetter : MovieGetterProvider) {
   }
 
   ionViewDidLoad() {
+  }
+
+  onKey(event: any) { // without type info
+    this.value = event.target.value;
+    this.movieGetter.getMovies(this.value);
   }
 
   

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Movie } from '../../pages/movies/Movie';
 /* 
   Generated class for the MovieGetterProvider provider.
 
@@ -15,13 +14,13 @@ export class MovieGetterProvider {
 
   constructor(public httpClient : HttpClient) {
     var i;
-    for(i=0;i<50;i++)
-      this.getMovies();
+    this.getMovies("blue");
   }
 
-  getMovies() {
-    this.httpClient.get('http://www.omdbapi.com/?t=coco&apikey=69335388').subscribe(
-      data => { this.moviesList.push( data ); console.log(data) },
+  getMovies(searchString) {
+    var request = this.httpClient.get('http://www.omdbapi.com/?t='+searchString+'&plot=full&apikey=69335388')
+    request.subscribe(
+      data => { this.moviesList.push( data ); console.log(data); },
       err => console.error(err),
       () => console.log('Movie Done')
     );
